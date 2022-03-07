@@ -8,8 +8,19 @@ class Entity {
    * Это могут быть счета или доходы/расходы
    * (в зависимости от того, что наследуется от Entity)
    * */
-  static list(data, callback){
-
+  static list(url, data, callback) {
+    createRequest({
+      url: url,
+      method: 'GET',
+      data,
+      callback: (err, response) => {
+        if (response && response.success) {
+          callback(response);
+        } else {
+          console.log(err);
+        }
+      },
+    });
   }
 
   /**
@@ -17,15 +28,37 @@ class Entity {
    * на сервер. (в зависимости от того,
    * что наследуется от Entity)
    * */
-  static create(data, callback) {
-
+  static create(url, data, callback) {
+    createRequest({
+      url: url,
+      method: 'PUT',
+      data: data,
+      callback: (err, response) => {
+        if (response && response.success) {
+          callback();
+        } else {
+          console.log(err);
+        }
+      },
+    });
   }
 
   /**
    * Удаляет информацию о счёте или доходе/расходе
    * (в зависимости от того, что наследуется от Entity)
    * */
-  static remove(data, callback ) {
-
+  static remove(url, data, callback) {
+    createRequest({
+      url: url,
+      method: 'DELETE',
+      data: data,
+      callback: (err, response) => {
+        if (response && response.success) {
+          callback();
+        } else {
+          console.log(err);
+        }
+      },
+    });
   }
 }

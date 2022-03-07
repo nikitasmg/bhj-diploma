@@ -11,8 +11,16 @@ class UserWidget {
    * Если переданный элемент не существует,
    * необходимо выкинуть ошибку.
    * */
+<<<<<<< HEAD
   constructor(element){
 
+=======
+  constructor(element) {
+    if (!element) {
+      throw new Error('element is not defined');
+    }
+    this.element = element;
+>>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -22,7 +30,16 @@ class UserWidget {
    * в элемент .user-name устанавливает имя
    * авторизованного пользователя
    * */
+<<<<<<< HEAD
   update(){
 
+=======
+  update() {
+    const user = User.current();
+    const { name } = JSON.parse(user);
+    const userName = document.querySelector('.user-name');
+
+    userName.textContent = name;
+>>>>>>> ef8dd36 (initial commit)
   }
 }
