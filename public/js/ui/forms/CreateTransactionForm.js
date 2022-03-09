@@ -8,12 +8,8 @@ class CreateTransactionForm extends AsyncForm {
    * метод renderAccountsList
    * */
   constructor(element) {
-<<<<<<< HEAD
-    super(element)
-=======
     super(element);
     this.renderAccountsList();
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -21,11 +17,8 @@ class CreateTransactionForm extends AsyncForm {
    * Обновляет в форме всплывающего окна выпадающий список
    * */
   renderAccountsList() {
-<<<<<<< HEAD
-
-=======
-    const accountSelect = document.querySelectorAll('.accounts-select');
-    Account.list('/account', null, (response) => {
+    const accountSelect = this.element.querySelectorAll('.accounts-select');
+    Account.list(null, (err, response) => {
       let result = '';
       response.data.forEach((element) => {
         result += `<option value="${element.id}">${element.name}</option>`;
@@ -34,7 +27,6 @@ class CreateTransactionForm extends AsyncForm {
         el.innerHTML = result;
       });
     });
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -44,50 +36,42 @@ class CreateTransactionForm extends AsyncForm {
    * в котором находится форма
    * */
   onSubmit(data) {
-<<<<<<< HEAD
-
-  }
-}
-=======
     const { name, sum, account_id } = data;
     const incomeModal = App.getModal('newIncome');
     const expenseModal = App.getModal('newExpense');
 
     if (this.element.id === 'new-income-form') {
       Transaction.create(
-        '/transaction',
         {
           type: 'income',
           name: name,
           sum: sum,
           account_id: account_id,
         },
-        () => {
-          App.updateWidgets();
-          App.updatePages();
-          App.updateForms();
-          incomeModal.close();
-          this.element[0].value = '';
-          this.element[1].value = '';
+        (err, response) => {
+          if (response.success) {
+            this.element.reset();
+            incomeModal.close();
+            App.update();
+          }
         }
       );
     } else {
       Transaction.create(
-        '/transaction',
         {
           type: 'expense',
           name: name,
           sum: sum,
           account_id: account_id,
         },
-        () => {
-          App.update();
-          expenseModal.close();
-          this.element[0].value = '';
-          this.element[1].value = '';
+        (err, response) => {
+          if (response.success) {
+            this.element.reset();
+            incomeModal.close();
+            App.update();
+          }
         }
       );
     }
   }
 }
->>>>>>> ef8dd36 (initial commit)

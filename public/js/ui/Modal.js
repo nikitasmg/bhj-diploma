@@ -11,17 +11,12 @@ class Modal {
    * Если переданный элемент не существует,
    * необходимо выкинуть ошибку.
    * */
-<<<<<<< HEAD
-  constructor(element){
-
-=======
   constructor(element) {
     if (!element) {
-      throw new Error();
+      throw new Error('element is not defined');
     }
     this.element = element;
     this.registerEvents();
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -30,9 +25,6 @@ class Modal {
    * (с помощью метода Modal.onClose)
    * */
   registerEvents() {
-<<<<<<< HEAD
-
-=======
     this.element.addEventListener('click', (e) => {
       e.preventDefault();
       const target = e.target;
@@ -41,7 +33,6 @@ class Modal {
         this.onClose(this.element);
       }
     });
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -49,34 +40,19 @@ class Modal {
    * Закрывает текущее окно (Modal.close())
    * */
   onClose(e) {
-<<<<<<< HEAD
-
-=======
     this.close(e);
->>>>>>> ef8dd36 (initial commit)
   }
   /**
    * Открывает окно: устанавливает CSS-свойство display
    * со значением «block»
    * */
   open() {
-<<<<<<< HEAD
-
-=======
     this.element.style.display = 'block';
->>>>>>> ef8dd36 (initial commit)
   }
   /**
    * Закрывает окно: удаляет CSS-свойство display
    * */
-<<<<<<< HEAD
-  close(){
-
-  }
-}
-=======
   close() {
     this.element.style.display = '';
   }
 }
->>>>>>> ef8dd36 (initial commit)

@@ -13,15 +13,11 @@ class AsyncForm {
    * через registerEvents()
    * */
   constructor(element) {
-<<<<<<< HEAD
-
-=======
     if (!element) {
-      throw new Error();
+      throw new Error('element is not defined');
     }
     this.element = element;
     this.registerEvents();
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -29,9 +25,6 @@ class AsyncForm {
    * вызывает метод submit()
    * */
   registerEvents() {
-<<<<<<< HEAD
-
-=======
     // const submitButton = document.querySelector();
     this.element.addEventListener('click', (e) => {
       e.preventDefault();
@@ -40,7 +33,6 @@ class AsyncForm {
         this.submit(this.element);
       }
     });
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -51,14 +43,6 @@ class AsyncForm {
    * }
    * */
   getData() {
-<<<<<<< HEAD
-
-  }
-
-  onSubmit(options){
-
-  }
-=======
     const returnForm = {};
     const form = this.element;
 
@@ -71,19 +55,12 @@ class AsyncForm {
   }
 
   onSubmit(options) {}
->>>>>>> ef8dd36 (initial commit)
 
   /**
    * Вызывает метод onSubmit и передаёт туда
    * данные, полученные из метода getData()
    * */
   submit() {
-<<<<<<< HEAD
-
-  }
-}
-=======
     this.onSubmit(this.getData());
   }
 }
->>>>>>> ef8dd36 (initial commit)

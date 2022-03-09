@@ -41,6 +41,24 @@
       "email": "nikita",
       "password": "nikita",
       "id": "gy2db5dl0dnep4m"
+    },
+    {
+      "name": "qwrqwr",
+      "email": "qwrqwr",
+      "password": "qwrqwr",
+      "id": "gy2dopdl0jh1298"
+    },
+    {
+      "name": "sss",
+      "email": "sss",
+      "password": "sss",
+      "id": "gy2dpu7l0jix6d3"
+    },
+    {
+      "name": "eee",
+      "email": "eee",
+      "password": "eee",
+      "id": "gy2dpvul0jiybwk"
     }
   ],
   "accounts": [
@@ -58,26 +76,6 @@
       "name": "Бизнес",
       "user_id": "1",
       "id": "3"
-    },
-    {
-      "name": "123123",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "id": "gy2d2wvl0bz3wme"
-    },
-    {
-      "name": "bbk",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "id": "gy2d7pcl0cgikz4"
-    },
-    {
-      "name": "123",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "id": "gy2d7s6l0cgqslw"
-    },
-    {
-      "name": "sdfsdf",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "id": "gy2d7t2l0cgvm55"
     },
     {
       "name": "12345",
@@ -282,87 +280,6 @@
       "user_id": "1"
     },
     {
-      "id": "gy2d92tl0deyr8m",
-      "type": "income",
-      "name": "купил ботинки",
-      "sum": 3000,
-      "account_id": "gy2d7pcl0cgikz4",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T05:37:22.533Z"
-    },
-    {
-      "id": "gy2d93fl0dez2zo",
-      "type": "income",
-      "name": "333",
-      "sum": 111111,
-      "account_id": "gy2d2wvl0bz3wme",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T05:37:37.763Z"
-    },
-    {
-      "id": "gy2d98il0dffge3",
-      "type": "income",
-      "name": "nikita",
-      "sum": 100,
-      "account_id": "gy2d7pcl0cgikz4",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T05:50:21.626Z"
-    },
-    {
-      "id": "gy2d9nel0dgr164",
-      "type": "income",
-      "name": "123",
-      "sum": 3,
-      "account_id": "gy2d2wvl0bz3wme",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T06:27:21.387Z"
-    },
-    {
-      "id": "gy2d9o9l0dgwjs2",
-      "type": "income",
-      "name": "123",
-      "sum": 333,
-      "account_id": "gy2d2wvl0bz3wme",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T06:31:38.785Z"
-    },
-    {
-      "id": "gy2d9oml0dgwwuh",
-      "type": "",
-      "name": "33333",
-      "sum": 333,
-      "account_id": "gy2d2wvl0bz3wme",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T06:31:55.720Z"
-    },
-    {
-      "id": "gy2d9p3l0dgyre9",
-      "type": "expense",
-      "name": "111",
-      "sum": 111,
-      "account_id": "gy2d2wvl0bz3wme",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T06:33:21.968Z"
-    },
-    {
-      "id": "gy2d9pel0dgzc6n",
-      "type": "expense",
-      "name": "123123123",
-      "sum": 669,
-      "account_id": "gy2d2wvl0bz3wme",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T06:33:48.910Z"
-    },
-    {
-      "id": "gy2d9pjl0dgznsy",
-      "type": "expense",
-      "name": "123123",
-      "sum": 111000,
-      "account_id": "gy2d2wvl0bz3wme",
-      "user_id": "gy2d2a2l0bx3nkg",
-      "created_at": "2022-03-05T06:34:03.969Z"
-    },
-    {
       "id": "gy2d9xwl0dhr1bp",
       "type": "expense",
       "name": "100",
@@ -460,6 +377,15 @@
       "account_id": "gy2dc8ol0dreb8f",
       "user_id": "gy2db5dl0dnep4m",
       "created_at": "2022-03-07T17:39:57.575Z"
+    },
+    {
+      "id": "gy2dqt4l0jka44h",
+      "type": "income",
+      "name": "доход",
+      "sum": 5000,
+      "account_id": "gy2dqlzl0jjytg4",
+      "user_id": "gy2dpvul0jiybwk",
+      "created_at": "2022-03-09T12:52:47.584Z"
     }
   ]
 }

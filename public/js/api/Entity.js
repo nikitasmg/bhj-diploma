@@ -3,23 +3,18 @@
  * Имеет свойство URL, равно пустой строке.
  * */
 class Entity {
+  static url = '';
   /**
    * Запрашивает с сервера список данных.
    * Это могут быть счета или доходы/расходы
    * (в зависимости от того, что наследуется от Entity)
    * */
-  static list(url, data, callback) {
+  static list(data, callback) {
     createRequest({
-      url: url,
+      url: this.url,
       method: 'GET',
       data,
-      callback: (err, response) => {
-        if (response && response.success) {
-          callback(response);
-        } else {
-          console.log(err);
-        }
-      },
+      callback: callback,
     });
   }
 
@@ -28,18 +23,12 @@ class Entity {
    * на сервер. (в зависимости от того,
    * что наследуется от Entity)
    * */
-  static create(url, data, callback) {
+  static create(data, callback) {
     createRequest({
-      url: url,
+      url: this.url,
       method: 'PUT',
       data: data,
-      callback: (err, response) => {
-        if (response && response.success) {
-          callback();
-        } else {
-          console.log(err);
-        }
-      },
+      callback: callback,
     });
   }
 
@@ -47,18 +36,12 @@ class Entity {
    * Удаляет информацию о счёте или доходе/расходе
    * (в зависимости от того, что наследуется от Entity)
    * */
-  static remove(url, data, callback) {
+  static remove(data, callback) {
     createRequest({
-      url: url,
+      url: this.url,
       method: 'DELETE',
       data: data,
-      callback: (err, response) => {
-        if (response && response.success) {
-          callback();
-        } else {
-          console.log(err);
-        }
-      },
+      callback: callback,
     });
   }
 }

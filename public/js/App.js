@@ -9,13 +9,8 @@ class App {
    * боковой колонки
    * */
   static init() {
-<<<<<<< HEAD
-    this.element = document.querySelector(".app");
-    this.content = document.querySelector(".content-wrapper");
-=======
     this.element = document.querySelector('.app');
     this.content = document.querySelector('.content-wrapper');
->>>>>>> ef8dd36 (initial commit)
 
     this.initPages();
     this.initForms();
@@ -36,11 +31,7 @@ class App {
    * состояние 'init'
    * */
   static initUser() {
-<<<<<<< HEAD
-    User.fetch(() => this.setState(User.current() ? "user-logged" : "init"));
-=======
     User.fetch(() => this.setState(User.current() ? 'user-logged' : 'init'));
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -58,19 +49,11 @@ class App {
    * */
   static initModals() {
     this.modals = {
-<<<<<<< HEAD
-      register: new Modal(document.querySelector("#modal-register")),
-      login: new Modal(document.querySelector("#modal-login")),
-      createAccount: new Modal(document.querySelector("#modal-new-account")),
-      newIncome: new Modal(document.querySelector("#modal-new-income")),
-      newExpense: new Modal(document.querySelector("#modal-new-expense")),
-=======
       register: new Modal(document.querySelector('#modal-register')),
       login: new Modal(document.querySelector('#modal-login')),
       createAccount: new Modal(document.querySelector('#modal-new-account')),
       newIncome: new Modal(document.querySelector('#modal-new-income')),
       newExpense: new Modal(document.querySelector('#modal-new-expense')),
->>>>>>> ef8dd36 (initial commit)
     };
   }
 
@@ -79,19 +62,11 @@ class App {
    * */
   static initWidgets() {
     this.widgets = {
-<<<<<<< HEAD
-      accounts: new AccountsWidget(document.querySelector(".accounts-panel")),
-      transactions: new TransactionsWidget(
-        document.querySelector(".transactions-panel")
-      ),
-      user: new UserWidget(document.querySelector(".user-panel")),
-=======
       accounts: new AccountsWidget(document.querySelector('.accounts-panel')),
       transactions: new TransactionsWidget(
         document.querySelector('.transactions-panel')
       ),
       user: new UserWidget(document.querySelector('.user-panel')),
->>>>>>> ef8dd36 (initial commit)
     };
   }
 
@@ -100,18 +75,6 @@ class App {
    * */
   static initForms() {
     this.forms = {
-<<<<<<< HEAD
-      login: new LoginForm(document.querySelector("#login-form")),
-      register: new RegisterForm(document.querySelector("#register-form")),
-      createAccount: new CreateAccountForm(
-        document.querySelector("#new-account-form")
-      ),
-      createIncome: new CreateTransactionForm(
-        document.querySelector("#new-income-form")
-      ),
-      createExpense: new CreateTransactionForm(
-        document.querySelector("#new-expense-form")
-=======
       login: new LoginForm(document.querySelector('#login-form')),
       register: new RegisterForm(document.querySelector('#register-form')),
       createAccount: new CreateAccountForm(
@@ -122,7 +85,6 @@ class App {
       ),
       createExpense: new CreateTransactionForm(
         document.querySelector('#new-expense-form')
->>>>>>> ef8dd36 (initial commit)
       ),
     };
   }
@@ -194,17 +156,10 @@ class App {
     this.element.classList.add(`app_${state}`);
     this.state = state;
 
-<<<<<<< HEAD
-    if (state === "user-logged") {
-      this.update();
-    }
-    if (state === "init") {
-=======
     if (state === 'user-logged') {
       this.update();
     }
     if (state === 'init') {
->>>>>>> ef8dd36 (initial commit)
       this.clear();
     }
   }
@@ -216,11 +171,7 @@ class App {
    * метод clear()
    * */
   static clear() {
-<<<<<<< HEAD
-    this.getPage("transactions").clear();
-=======
     this.getPage('transactions').clear();
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -240,11 +191,7 @@ class App {
    * метод update()
    * */
   static updatePages() {
-<<<<<<< HEAD
-    this.getPage("transactions").update();
-=======
     this.getPage('transactions').update();
->>>>>>> ef8dd36 (initial commit)
   }
 
   /**
@@ -252,15 +199,6 @@ class App {
    * accounts и user
    * */
   static updateWidgets() {
-<<<<<<< HEAD
-    this.getWidget("accounts").update();
-    this.getWidget("user").update();
-  }
-
-  static updateForms() {
-    this.getForm("createIncome").renderAccountsList();
-    this.getForm("createExpense").renderAccountsList();
-=======
     this.getWidget('accounts').update();
     this.getWidget('user').update();
   }
@@ -268,6 +206,5 @@ class App {
   static updateForms() {
     this.getForm('createIncome').renderAccountsList();
     this.getForm('createExpense').renderAccountsList();
->>>>>>> ef8dd36 (initial commit)
   }
 }

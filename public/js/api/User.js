@@ -4,13 +4,13 @@
  * Имеет свойство URL, равное '/user'.
  * */
 class User {
+  static URL = '/user';
   /**
    * Устанавливает текущего пользователя в
    * локальном хранилище.
    * */
   static setCurrent(user) {
-    user = JSON.stringify(user);
-    localStorage.setItem('user', user);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   /**
@@ -18,7 +18,7 @@ class User {
    * пользователе из локального хранилища.
    * */
   static unsetCurrent() {
-    localStorage.removeItem('user');
+    localStorage.clear();
   }
 
   /**
@@ -26,7 +26,7 @@ class User {
    * из локального хранилища
    * */
   static current() {
-    return localStorage.getItem('user');
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   /**
@@ -34,7 +34,19 @@ class User {
    * авторизованном пользователе.
    * */
   static fetch(callback) {
-    createRequest({ url: `/user/current`, method: 'GET', callback });
+    createRequest({
+      url: this.URL + `/current`,
+      method: 'GET',
+      callback: (err, response) => {
+        if (response && response.user) {
+          User.setCurrent(response.user);
+          callback(response.user);
+        } else {
+          User.unsetCurrent();
+          callback(err);
+        }
+      },
+    });
   }
 
   /**
@@ -45,7 +57,7 @@ class User {
    * */
   static login(data, callback) {
     createRequest({
-      url: '/user/login',
+      url: this.URL + '/login',
       method: 'POST',
       data,
       callback: (err, response) => {
@@ -67,7 +79,7 @@ class User {
    * */
   static register(data, callback) {
     createRequest({
-      url: '/user/register',
+      url: this.URL + '/register',
       method: 'POST',
       data,
       callback: (err, response) => {
@@ -86,7 +98,7 @@ class User {
    * */
   static logout(callback) {
     createRequest({
-      url: '/user/logout',
+      url: this.URL + '/logout',
       method: 'POST',
       callback: (err, response) => {
         if (response && response.success) {

@@ -11,17 +11,12 @@ class TransactionsWidget {
    * Если переданный элемент не существует,
    * необходимо выкинуть ошибку.
    * */
-<<<<<<< HEAD
-  constructor( element ) {
-
-=======
   constructor(element) {
     if (!element) {
       throw new Error('element is not defined');
     }
     this.element = element;
     this.registerEvents();
->>>>>>> ef8dd36 (initial commit)
   }
   /**
    * Регистрирует обработчики нажатия на
@@ -30,9 +25,6 @@ class TransactionsWidget {
    * экземпляра окна
    * */
   registerEvents() {
-<<<<<<< HEAD
-
-=======
     const incomeModal = App.getModal('newIncome');
     const expenseModal = App.getModal('newExpense');
 
@@ -45,6 +37,5 @@ class TransactionsWidget {
         expenseModal.open();
       }
     });
->>>>>>> ef8dd36 (initial commit)
   }
 }
