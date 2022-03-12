@@ -17,13 +17,18 @@ class TransactionsPage {
     this.element = element;
     this.registerEvents();
     this.title = document.querySelector('.content-title');
+    this.lastOptions = {account_id:null}
   }
+
 
   /**
    * Вызывает метод render для отрисовки страницы
    * */
   update() {
-    this.render();
+    if(this.lastOptions.account_id) {
+      this.render(this.lastOptions);
+    }
+   
   }
 
   /**
@@ -38,7 +43,7 @@ class TransactionsPage {
       if (target.classList.contains('remove-account')) {
         this.removeAccount();
       }
-      if (target.classList.contains('transaction__remove')) {
+      if (target.closest('.transaction__remove')) {
         this.removeTransaction(target.getAttribute('data-id'));
       }
     });
@@ -81,7 +86,7 @@ class TransactionsPage {
     const result = confirm('Действительно удалить?');
     if (result) {
       Transaction.remove({ id: id }, () => {
-        App.update();
+        App.update()
       });
     }
   }
@@ -93,7 +98,8 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render(options) {
-    if (options) {
+    if(options) {
+      this.lastOptions.account_id = options.account_id
       Account.get(options.account_id, (err, response) => {
         this.renderTitle(response.data.name);
       });

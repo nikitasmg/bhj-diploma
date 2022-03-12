@@ -11,28 +11,25 @@ const createRequest = async (options = {}) => {
   }
   const _baseUrl = url + '?' + sholdAddToUrl;
   const dataForm = new FormData();
+  let response, request;
   for (key in data) {
-    dataForm.append([key], options.data[key]);
+    dataForm.append(key, options.data[key]);
   }
 
   try {
     if (method === 'GET') {
-      const request = await fetch(_baseUrl, {
+      request = await fetch(_baseUrl, {
         method: method,
       });
-
-      const response = await request.json();
-      callback(response.error, response);
     } else {
-      const request = await fetch(url, {
+      request = await fetch(url, {
         method: method,
         body: dataForm,
       });
-
-      const response = await request.json();
-      callback(response.error, response);
     }
+    response = await request.json();
+    callback(response.error, response);
   } catch (error) {
-    console.log(error);
+    callback(error);
   }
 };

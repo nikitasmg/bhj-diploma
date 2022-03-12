@@ -17,15 +17,13 @@ class CreateTransactionForm extends AsyncForm {
    * Обновляет в форме всплывающего окна выпадающий список
    * */
   renderAccountsList() {
-    const accountSelect = this.element.querySelectorAll('.accounts-select');
+    const accountSelect = this.element.querySelector('.accounts-select');
     Account.list(null, (err, response) => {
       let result = '';
       response.data.forEach((element) => {
         result += `<option value="${element.id}">${element.name}</option>`;
       });
-      accountSelect.forEach((el) => {
-        el.innerHTML = result;
-      });
+      accountSelect.innerHTML = result;
     });
   }
 
@@ -37,41 +35,27 @@ class CreateTransactionForm extends AsyncForm {
    * */
   onSubmit(data) {
     const { name, sum, account_id } = data;
-    const incomeModal = App.getModal('newIncome');
-    const expenseModal = App.getModal('newExpense');
-
-    if (this.element.id === 'new-income-form') {
-      Transaction.create(
-        {
-          type: 'income',
-          name: name,
-          sum: sum,
-          account_id: account_id,
-        },
-        (err, response) => {
-          if (response.success) {
-            this.element.reset();
-            incomeModal.close();
-            App.update();
-          }
-        }
-      );
-    } else {
-      Transaction.create(
-        {
-          type: 'expense',
-          name: name,
-          sum: sum,
-          account_id: account_id,
-        },
-        (err, response) => {
-          if (response.success) {
-            this.element.reset();
-            incomeModal.close();
-            App.update();
-          }
-        }
-      );
+    let type = 'income';
+    let currentModal = this.element.closest('.modal').dataset.modalId
+    const modal = App.getModal(currentModal)
+   
+    if (this.element.id === 'new-expense-form') {
+      type = 'expense';
     }
+    Transaction.create(
+      {
+        type: type,
+        name: name,
+        sum: sum,
+        account_id: account_id,
+      },
+      (err, response) => {
+        if (response) {
+          this.element.reset();
+          modal.close();
+          App.update();
+        }
+      }
+    );
   }
 }

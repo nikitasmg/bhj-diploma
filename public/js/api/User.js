@@ -18,7 +18,7 @@ class User {
    * пользователе из локального хранилища.
    * */
   static unsetCurrent() {
-    localStorage.clear();
+    localStorage.removeItem('user');
   }
 
   /**
@@ -40,10 +40,10 @@ class User {
       callback: (err, response) => {
         if (response && response.user) {
           User.setCurrent(response.user);
-          callback(response.user);
+          callback();
         } else {
           User.unsetCurrent();
-          callback(err);
+          callback(err,response);
         }
       },
     });
@@ -63,7 +63,7 @@ class User {
       callback: (err, response) => {
         if (response && response.user) {
           User.setCurrent(response.user);
-          callback();
+          callback(err,response);
         } else {
           console.log(err);
         }
@@ -85,7 +85,7 @@ class User {
       callback: (err, response) => {
         if (response && response.user) {
           User.setCurrent(response.user);
-          callback();
+          callback(err, response.user);
         }
         console.log(err);
       },
@@ -103,7 +103,7 @@ class User {
       callback: (err, response) => {
         if (response && response.success) {
           User.unsetCurrent();
-          callback();
+          callback(err, response);
         }
         console.log(err);
       },

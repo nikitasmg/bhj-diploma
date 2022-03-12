@@ -36,8 +36,8 @@ class AccountsWidget {
       if (target.classList.contains('create-account')) {
         accountModal.open();
       }
-      if (target.closest('li')) {
-        this.onSelectAccount(target.closest('li'));
+      if (target.closest('.account')) {
+        this.onSelectAccount(target.closest('.account'));
       }
     });
   }
@@ -90,7 +90,6 @@ class AccountsWidget {
     });
     element.classList.add('active');
     const id = element.getAttribute('data-id');
-    App.clear();
     App.showPage('transactions', { account_id: id });
   }
 
